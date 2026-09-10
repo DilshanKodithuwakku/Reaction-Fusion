@@ -1,7 +1,0 @@
-version: reactionfusion_v1
-reactions: [like, love, haha, wow, sad, angry, care]
-minimum_total_reactions: 1
-label_mode: hard
-confidence_threshold: null
-# Add validated reaction weights and ambiguity rules here. Do not tune them on the test set.
-

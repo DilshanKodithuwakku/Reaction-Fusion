@@ -1,0 +1,23 @@
+optimal_thresholds:
+  joy: 0.75
+  affection: 0.65
+  amusement: 0.6
+  surprise: 0.65
+  sadness: 0.5
+  anger: 0.5
+  care_empathy: 0.6
+  fear: 0.85
+  disgust: 0.5
+  approval: 0.7
+  sarcasm: 0.65
+  pride: 0.8
+  gratitude: 0.9
+  disappointment: 0.4
+  grief: 0.85
+  jealousy: 0.6
+  confusion: 0.65
+  nostalgia: 0.85
+  hope: 0.55
+  excitement: 0.9
+  relief: 0.7
+  embarrassment: 0.9

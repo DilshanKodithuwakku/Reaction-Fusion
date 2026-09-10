@@ -2,58 +2,27 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
-.mypy_cache/
-.ruff_cache/
 .venv/
 venv/
 .env
-.env.*
-!.env.example
 
 # IDE / OS
-.idea/
 .vscode/
+.idea/
 .DS_Store
 Thumbs.db
 
-# Notebooks
-.ipynb_checkpoints/
+# Node / Web builds
+node_modules/
+dist/
+build/
+.next/
 
-# Dataset artifacts (DVC pointer files remain versioned)
-data/raw/**
-data/interim/**
-data/processed/**
-data/external/**
-!data/raw/.gitkeep
-!data/interim/.gitkeep
-!data/processed/.gitkeep
-!data/external/.gitkeep
-!data/samples/**
-*.csv
-*.tsv
-*.jsonl
-*.parquet
-!data/samples/*.csv
-!data/samples/*.tsv
-!data/samples/*.jsonl
-!data/samples/*.parquet
-
-# Models and generated experiment artifacts
-models/**
-!models/.gitkeep
-artifacts/
-checkpoints/
-mlruns/
-wandb/
-
-# Platform builds
-platform/frontend/node_modules/
-platform/frontend/dist/
-platform/backend/uploads/
-
-# Secrets and local databases
+# Databases
 *.sqlite
 *.sqlite3
 *.db
-*.pem
-*.key
+
+# Model checkpoints & large binary caches
+*.pt.tmp
+*.tar.gz
