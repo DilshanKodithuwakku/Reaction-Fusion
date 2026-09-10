@@ -11,7 +11,7 @@
 
 ---
 
-## 👥 Group Project Work Breakdown & Contribution Flow
+## Group Project Work Breakdown & Contribution Flow
 
 This repository serves as the **central Git repository** for the 4-member group project. Members initialize and contribute to the repository chronologically:
 
@@ -24,7 +24,7 @@ This repository serves as the **central Git repository** for the 4-member group 
 
 ---
 
-## 🏛️ System Architecture
+## System Architecture
 
 ```
 [ Sinhala Text (5000-d TF-IDF) ] --------+
@@ -41,7 +41,7 @@ This repository serves as the **central Git repository** for the 4-member group 
 
 ---
 
-## 📊 Dataset & Benchmark Performance
+## Dataset & Benchmark Performance
 
 * **Dataset Release (`emotion_22_v2`)**: 4,997 authentic public Sri Lankan Facebook posts, human-annotated across 22 fine-grained emotional categories:
   * **Train**: 3,486 posts (69.8%)
@@ -62,7 +62,7 @@ This repository serves as the **central Git repository** for the 4-member group 
 
 ---
 
-## 🚀 Chronological Project Setup & Contribution Guide
+## Chronological Project Setup & Contribution Guide
 
 To rebuild or contribute to the project step-by-step:
 
@@ -127,7 +127,7 @@ cd Reaction-Fusion
 
 ---
 
-## 🏃‍♂️ Running the Reconstructed Platform
+## Running the Reconstructed Platform
 
 Run the three core services concurrently:
 
@@ -153,7 +153,7 @@ Run the three core services concurrently:
 
 ---
 
-## 📄 Academic Reference & Thesis Mapping
+## Academic Reference & Thesis Mapping
 * **K.A.A Dilshan**: Chapter 3 (*Data Acquisition, Corpus Linguistics & Annotation Governance*)
 * **L.W.L Silva**: Chapter 4 (*Multimodal Deep Neural Architecture & Emotion Classification*)
 * **K.A.P.B Himaranshi**: Chapter 5 (*Explainable AI Decision Systems & High-Performance Inference*)
