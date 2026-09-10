@@ -1,0 +1,12 @@
+{
+  "dataset_version": "emotion_22_v2",
+  "split": "test",
+  "n_samples": 755,
+  "metrics": {
+    "macro_ap": 0.612104678768553,
+    "macro_f1": 0.5580032261675709,
+    "micro_f1": 0.6317512274959084,
+    "hamming_loss": 0.12191450933172787,
+    "subset_accuracy": 0.12980132450331125
+  }
+}
