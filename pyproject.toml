@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reactionfusion"
+version = "0.1.0"
+description = "Facebook reaction fusion for Sinhala social-media sentiment analysis"
+requires-python = ">=3.10"
+dependencies = [
+    "joblib>=1.4",
+    "numpy>=1.26",
+    "openpyxl>=3.1",
+    "pandas>=2.2",
+    "scikit-learn>=1.5",
+    "scipy>=1.13",
+]
+
+[project.scripts]
+reactionfusion-preprocess = "reactionfusion.data.preprocessing:main"
+reactionfusion-evaluate-annotations = "reactionfusion.evaluation.human_validation:main"
+reactionfusion-train-v2 = "reactionfusion.training.reactionfusion_v2_pipeline:main"
+reactionfusion-train-neural = "reactionfusion.training.reactionfusion_neural_pipeline:main"
+reactionfusion-merge-augmentation = "reactionfusion.data.merge_augmented:main"
+reactionfusion-evaluate-neural-synthetic = "reactionfusion.evaluation.synthetic_validation:main"
+reactionfusion-train-combined = "reactionfusion.training.reactionfusion_combined_pipeline:main"
+reactionfusion-train-gradient-boosting = "reactionfusion.training.gradient_boosting_human:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

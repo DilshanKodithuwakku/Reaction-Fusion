@@ -1,0 +1,34 @@
+{
+  "version": "2.0",
+  "description": "22-emotion leakage-safe dataset (5000 posts) with 7 Facebook reactions",
+  "total_rows": 4997,
+  "splits": {
+    "train": 3486,
+    "validation": 756,
+    "test": 755
+  },
+  "emotion_order": [
+    "joy",
+    "affection",
+    "amusement",
+    "surprise",
+    "sadness",
+    "anger",
+    "care_empathy",
+    "fear",
+    "disgust",
+    "approval",
+    "sarcasm",
+    "pride",
+    "gratitude",
+    "disappointment",
+    "grief",
+    "jealousy",
+    "confusion",
+    "nostalgia",
+    "hope",
+    "excitement",
+    "relief",
+    "embarrassment"
+  ]
+}
