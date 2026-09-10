@@ -1,0 +1,618 @@
+/* ReactionFusion: Grammarly-style Modern Minimalistic Extension Styles */
+
+/* ==========================================================================
+   1. Floating Trigger Button (.rf-grammarly-wrapper & .rf-grammarly-btn)
+   ========================================================================== */
+.rf-grammarly-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  vertical-align: middle;
+}
+
+.rf-grammarly-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 4px;
+  position: relative;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12), 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+/* Dark mode auto-adapt */
+.dark .rf-grammarly-btn,
+[data-theme=dark] .rf-grammarly-btn,
+.rf-dark-mode .rf-grammarly-btn {
+  background: #242526;
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #f1f5f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+}
+
+.rf-grammarly-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+  border-color: #6366f1;
+}
+
+.rf-grammarly-btn:active {
+  transform: scale(0.94);
+}
+
+/* Icon glyph inside trigger */
+.rf-grammarly-btn svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+
+/* Status indicator dot */
+.rf-status-dot {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: #94a3b8;
+  transition: all 0.25s ease;
+}
+
+.dark .rf-status-dot,
+.rf-dark-mode .rf-status-dot {
+  border-color: #242526;
+}
+
+/* State Variants */
+.rf-grammarly-btn.rf-state-positive .rf-status-dot {
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+}
+.rf-grammarly-btn.rf-state-positive {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.rf-grammarly-btn.rf-state-negative .rf-status-dot {
+  background: #f43f5e;
+  box-shadow: 0 0 6px rgba(244, 63, 94, 0.8);
+}
+.rf-grammarly-btn.rf-state-negative {
+  border-color: rgba(244, 63, 94, 0.4);
+}
+
+.rf-grammarly-btn.rf-state-mixed .rf-status-dot,
+.rf-grammarly-btn.rf-state-neutral .rf-status-dot {
+  background: #f59e0b;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.8);
+}
+.rf-grammarly-btn.rf-state-mixed,
+.rf-grammarly-btn.rf-state-neutral {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* Loading Spinner */
+.rf-grammarly-btn.rf-state-loading svg {
+  animation: rf-spin 1s linear infinite;
+  color: #6366f1;
+}
+
+@keyframes rf-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   2. Modern Minimalistic Pop-up (.rf-grammarly-popup)
+   ========================================================================== */
+.rf-grammarly-popup {
+  position: absolute;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  max-height: 85vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 24px 50px -10px rgba(0, 0, 0, 0.25), 0 4px 16px rgba(0, 0, 0, 0.08);
+  z-index: 999999;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #0f172a;
+  animation: rf-pop-in 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: top right;
+  text-align: left;
+  user-select: text;
+}
+
+.rf-grammarly-popup::-webkit-scrollbar {
+  width: 5px;
+}
+
+.rf-grammarly-popup::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+.dark .rf-grammarly-popup,
+[data-theme="dark"] .rf-grammarly-popup,
+.rf-dark-mode .rf-grammarly-popup {
+  background: rgba(28, 30, 33, 0.98);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
+  box-shadow: 0 24px 48px -10px rgba(0, 0, 0, 0.65), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.dark .rf-grammarly-popup::-webkit-scrollbar-thumb,
+.rf-dark-mode .rf-grammarly-popup::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes rf-pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ==========================================================================
+   3. Pop-up Header
+   ========================================================================== */
+.rf-popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 10px 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dark .rf-popup-header,
+.rf-dark-mode .rf-popup-header {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.rf-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rf-brand-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.35);
+}
+
+.rf-brand-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.rf-brand-tag {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.dark .rf-brand-tag,
+.rf-dark-mode .rf-brand-tag {
+  background: rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+
+.rf-popup-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rf-action-icon-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 0;
+}
+
+.rf-action-icon-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  color: #0f172a;
+}
+
+.dark .rf-action-icon-btn:hover,
+.rf-dark-mode .rf-action-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   4. Pop-up Body & Sentiment Hero Card
+   ========================================================================== */
+.rf-popup-body {
+  padding: 14px;
+}
+
+.rf-hero-card {
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.rf-hero-card.rf-positive {
+  background: linear-gradient(135deg, rgba(220, 252, 231, 0.7) 0%, rgba(240, 253, 244, 0.9) 100%);
+  border-color: rgba(134, 239, 172, 0.6);
+}
+
+.rf-hero-card.rf-negative {
+  background: linear-gradient(135deg, rgba(255, 228, 230, 0.7) 0%, rgba(255, 241, 242, 0.9) 100%);
+  border-color: rgba(253, 164, 175, 0.6);
+}
+
+.rf-hero-card.rf-mixed,
+.rf-hero-card.rf-neutral {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.7) 0%, rgba(255, 251, 235, 0.9) 100%);
+  border-color: rgba(253, 230, 138, 0.6);
+}
+
+.dark .rf-hero-card.rf-positive,
+.rf-dark-mode .rf-hero-card.rf-positive {
+  background: rgba(6, 78, 59, 0.25);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.dark .rf-hero-card.rf-negative,
+.rf-dark-mode .rf-hero-card.rf-negative {
+  background: rgba(136, 19, 55, 0.25);
+  border-color: rgba(244, 63, 94, 0.35);
+}
+
+.dark .rf-hero-card.rf-mixed,
+.dark .rf-hero-card.rf-neutral,
+.rf-dark-mode .rf-hero-card.rf-mixed,
+.rf-dark-mode .rf-hero-card.rf-neutral {
+  background: rgba(120, 53, 15, 0.25);
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.rf-hero-sentiment-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.rf-sentiment-pill {
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.2px;
+}
+
+.rf-hero-card.rf-positive .rf-sentiment-pill { color: #15803d; }
+.rf-hero-card.rf-negative .rf-sentiment-pill { color: #be123c; }
+.rf-hero-card.rf-mixed .rf-sentiment-pill,
+.rf-hero-card.rf-neutral .rf-sentiment-pill { color: #b45309; }
+
+.dark .rf-hero-card.rf-positive .rf-sentiment-pill { color: #34d399; }
+.dark .rf-hero-card.rf-negative .rf-sentiment-pill { color: #fb7185; }
+.dark .rf-hero-card.rf-mixed .rf-sentiment-pill,
+.dark .rf-hero-card.rf-neutral .rf-sentiment-pill { color: #fbbf24; }
+
+.rf-confidence-pct {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+/* Confidence Gauge Track */
+.rf-confidence-track {
+  width: 100%;
+  height: 5px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin: 6px 0 8px 0;
+}
+
+.dark .rf-confidence-track,
+.rf-dark-mode .rf-confidence-track {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.rf-confidence-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rf-hero-card.rf-positive .rf-confidence-bar { background: #10b981; }
+.rf-hero-card.rf-negative .rf-confidence-bar { background: #f43f5e; }
+.rf-hero-card.rf-mixed .rf-confidence-bar,
+.rf-hero-card.rf-neutral .rf-confidence-bar { background: #f59e0b; }
+
+.rf-hero-summary-text {
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #334155;
+}
+
+.dark .rf-hero-summary-text,
+.rf-dark-mode .rf-hero-summary-text {
+  color: #cbd5e1;
+}
+
+/* ==========================================================================
+   5. Emotion Breakdown Section
+   ========================================================================== */
+.rf-section-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748b;
+  margin: 12px 0 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dark .rf-section-title,
+.rf-dark-mode .rf-section-title {
+  color: #94a3b8;
+}
+
+.rf-emotions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.rf-emotion-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.rf-emotion-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+
+.rf-emotion-name {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rf-emotion-score {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.dark .rf-emotion-score,
+.rf-dark-mode .rf-emotion-score {
+  color: #94a3b8;
+}
+
+.rf-progress-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.dark .rf-progress-track,
+.rf-dark-mode .rf-progress-track {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.rf-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+  transition: width 0.5s ease;
+}
+
+/* Toggle 22 emotions drawer button */
+.rf-toggle-drawer-btn {
+  width: 100%;
+  padding: 6px 8px;
+  background: transparent;
+  border: 1px dashed rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #6366f1;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+  margin-bottom: 12px;
+}
+
+.dark .rf-toggle-drawer-btn,
+.rf-dark-mode .rf-toggle-drawer-btn {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #818cf8;
+}
+
+.rf-toggle-drawer-btn:hover {
+  background: rgba(99, 102, 241, 0.06);
+  border-color: #6366f1;
+}
+
+/* 22 Emotions Grid Drawer */
+.rf-drawer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 4px 2px 8px 2px;
+  margin-bottom: 10px;
+}
+
+.rf-drawer-item {
+  background: #f8fafc;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 10.5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dark .rf-drawer-item,
+.rf-dark-mode .rf-drawer-item {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   6. Audience Signals / Audit Footer
+   ========================================================================== */
+.rf-signals-card {
+  background: #f8fafc;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.dark .rf-signals-card,
+.rf-dark-mode .rf-signals-card {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.rf-signal-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 6px;
+}
+
+.dark .rf-signal-stats,
+.rf-dark-mode .rf-signal-stats {
+  color: #cbd5e1;
+}
+
+.rf-rxn-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.rf-mini-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 10px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.dark .rf-mini-chip,
+.rf-dark-mode .rf-mini-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #f1f5f9;
+}
+
+.rf-source-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #6366f1;
+  margin-top: 8px;
+}
+
+.dark .rf-source-badge,
+.rf-dark-mode .rf-source-badge {
+  color: #a5b4fc;
+}
+
+/* ==========================================================================
+   7. Loading & Error States inside Popup
+   ========================================================================== */
+.rf-loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 14px;
+  text-align: center;
+  gap: 12px;
+}
+
+.rf-pulse-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid rgba(99, 102, 241, 0.2);
+  border-top-color: #6366f1;
+  animation: rf-spin 0.8s linear infinite;
+}
+
+.rf-loading-title {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.rf-loading-subtitle {
+  font-size: 11px;
+  color: #64748b;
+  max-width: 240px;
+}

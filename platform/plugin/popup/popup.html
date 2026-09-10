@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ReactionFusion Plugin</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <div class="header">
+      <div class="brand">
+        <span class="logo">⚡</span>
+        <div>
+          <h2>ReactionFusion</h2>
+          <p>Mock Facebook Sentiment AI</p>
+        </div>
+      </div>
+      <div id="health-status" class="status-badge offline">Checking...</div>
+    </div>
+
+    <!-- Master Toggle -->
+    <div class="card toggle-card">
+      <div class="toggle-info">
+        <span class="toggle-title">Mock Facebook Overlay</span>
+        <span class="toggle-desc">Inject Grammarly pulse widget on Mock Facebook</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-enabled" checked>
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <!-- Active Model Details -->
+    <div class="card info-card">
+      <div class="card-header">
+        <span>Active Model Specs</span>
+        <span class="version-tag" id="model-version">emotion_22_v2</span>
+      </div>
+      <div class="spec-row">
+        <span>Target Dimensions:</span>
+        <strong>22 Multimodal Emotions</strong>
+      </div>
+      <div class="spec-row">
+        <span>Decision Engine:</span>
+        <strong>Rule-Based Explainability</strong>
+      </div>
+      <div class="spec-row">
+        <span>Session Posts Analyzed:</span>
+        <strong id="session-counter" class="counter-badge">0</strong>
+      </div>
+    </div>
+
+    <!-- API Server Configuration -->
+    <div class="card config-card">
+      <div class="card-header">
+        <span>Backend API Server</span>
+        <button type="button" id="save-api-btn" class="btn-text">Save</button>
+      </div>
+      <input type="text" id="api-url-input" class="input-text" placeholder="http://127.0.0.1:8000">
+      <p class="helper-text">Default: http://127.0.0.1:8000 (or ngrok / remote URL)</p>
+    </div>
+
+    <!-- Quick In-Popup Tester -->
+    <div class="card tester-card">
+      <div class="card-header">
+        <span>Quick Model Tester</span>
+      </div>
+      <textarea id="test-text" rows="2" placeholder="Test Sinhala comment or text..."></textarea>
+      <div class="tester-actions">
+        <button type="button" id="test-btn" class="btn-primary">Analyze Sample</button>
+      </div>
+      <div id="test-result" class="test-result" style="display: none;"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

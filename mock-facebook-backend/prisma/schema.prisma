@@ -1,0 +1,82 @@
+// Prisma schema for Mock Facebook REST API backend
+// Target database: local SQLite file (dev.db)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(uuid())
+  name      String
+  avatarUrl String
+  handle    String     @unique
+  createdAt DateTime   @default(now())
+
+  // Relations
+  posts     Post[]
+  reactions Reaction[]
+  comments  Comment[]
+}
+
+model Post {
+  id        String     @id @default(uuid())
+  authorId  String
+  content   String
+  mediaUrl  String?
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  // Relations
+  author    User       @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  reactions Reaction[]
+  comments  Comment[]
+
+  @@index([authorId])
+  @@index([createdAt])
+}
+
+model Reaction {
+  id        String   @id @default(uuid())
+  postId    String
+  userId    String
+  type      String   // 'LIKE' | 'LOVE' | 'HAHA' | 'WOW' | 'SAD' | 'ANGRY'
+  createdAt DateTime @default(now())
+
+  // Relations
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // One reaction per user per post
+  @@unique([postId, userId])
+  @@index([postId])
+  @@index([userId])
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  postId    String
+  authorId  String
+  text      String
+  createdAt DateTime @default(now())
+
+  // Relations
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([postId])
+  @@index([authorId])
+}
+
+model WebhookLog {
+  id             String   @id @default(uuid())
+  eventType      String   // 'post.reaction_updated', 'post.comment_created', etc.
+  payload        String   // JSON stringified payload
+  responseStatus Int?     // HTTP status code from receiver (200, 404, 500, etc.)
+  error          String?  // Error message if request failed
+  timestamp      DateTime @default(now())
+}
