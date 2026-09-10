@@ -17,10 +17,10 @@ This repository serves as the **central Git repository** for the 4-member group 
 
 | Member | Role & Specialization | Key Deliverables & Code | Handoff Artifact |
 | :---: | :--- | :--- | :--- |
-| **Member 1** | **Data Engineering, Human Annotation & Sinhala NLP Lead** | Facebook post scraping, 3-annotator protocol, zero-leakage splits (`data/releases/emotion_22_v2/`), Sinhala normalization, 5,000-d TF-IDF extraction | Frozen Dataset Release (`v2`) & Feature Extractors |
-| **Member 2** | **Deep Learning & Multimodal Neural Network Lead** | PyTorch `MultimodalEmotionNet` (dual-branch text + reaction fusion), multi-label weighted BCE training, threshold calibration (0.40–0.90), 22-emotion benchmarks | Trained Model Checkpoint (`best_emotion_model.pt`) & Configs |
-| **Member 3** | **Explainable AI & Inference Microservice Lead** | Phase 10 Decision Tree Sentiment Mapper, clinical evidence sums ($S_{	ext{pos}}, S_{	ext{neg}}$), sarcasm resolution engine, asynchronous FastAPI microservice (`port 8000`), test suite | Live REST API (`/api/v1/analyze`) & Explainability Engine |
-| **Member 4** | **Full-Stack Platform, Mock Facebook & Extension UI/UX Lead** | Mock Facebook React 19 frontend (`port 3000`), Express/Prisma/SQLite backend (`port 4000`, 36 users seed), Grammarly-style Manifest V3 Chrome Extension, DOM body portal overlay | Deployed Social Media Platform & Browser Extension |
+| **K.A.A Dilshan** | **Data Engineering, Human Annotation & Sinhala NLP Lead** | Facebook post scraping, 3-annotator protocol, zero-leakage splits (`data/releases/emotion_22_v2/`), Sinhala normalization, 5,000-d TF-IDF extraction | Frozen Dataset Release (`v2`) & Feature Extractors |
+| **L.W.L Silva** | **Deep Learning & Multimodal Neural Network Lead** | PyTorch `MultimodalEmotionNet` (dual-branch text + reaction fusion), multi-label weighted BCE training, threshold calibration (0.40–0.90), 22-emotion benchmarks | Trained Model Checkpoint (`best_emotion_model.pt`) & Configs |
+| **K.A.P.B Himaranshi** | **Explainable AI & Inference Microservice Lead** | Phase 10 Decision Tree Sentiment Mapper, clinical evidence sums ($S_{	ext{pos}}, S_{	ext{neg}}$), sarcasm resolution engine, asynchronous FastAPI microservice (`port 8000`), test suite | Live REST API (`/api/v1/analyze`) & Explainability Engine |
+| **Tharindu Kothalawala** | **Full-Stack Platform, Mock Facebook & Extension UI/UX Lead** | Mock Facebook React 19 frontend (`port 3000`), Express/Prisma/SQLite backend (`port 4000`, 36 users seed), Grammarly-style Manifest V3 Chrome Extension, DOM body portal overlay | Deployed Social Media Platform & Browser Extension |
 
 ---
 
@@ -154,9 +154,9 @@ Run the three core services concurrently:
 ---
 
 ## 📄 Academic Reference & Thesis Mapping
-* **Member 1**: Chapter 3 (*Data Acquisition, Corpus Linguistics & Annotation Governance*)
-* **Member 2**: Chapter 4 (*Multimodal Deep Neural Architecture & Emotion Classification*)
-* **Member 3**: Chapter 5 (*Explainable AI Decision Systems & High-Performance Inference*)
-* **Member 4**: Chapter 6 (*Platform Architecture, External Social Emulation & Browser Extensions*)
+* **K.A.A Dilshan**: Chapter 3 (*Data Acquisition, Corpus Linguistics & Annotation Governance*)
+* **L.W.L Silva**: Chapter 4 (*Multimodal Deep Neural Architecture & Emotion Classification*)
+* **K.A.P.B Himaranshi**: Chapter 5 (*Explainable AI Decision Systems & High-Performance Inference*)
+* **Tharindu Kothlawala**: Chapter 6 (*Platform Architecture, External Social Emulation & Browser Extensions*)
 
 *(c) 2026 ReactionFusion Team. All rights reserved.*
